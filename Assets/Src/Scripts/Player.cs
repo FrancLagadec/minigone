@@ -71,7 +71,11 @@ namespace YsoCorp {
         }
 
         public void Die(Transform killer) {
-            this.isAlive = false;
+            Debug.Log("passe");
+            if (this.isAlive)
+                this.isAlive = false;
+            else
+                return;
 
             if (this._ragdollBehviour != null) {
                 this._ragdollBehviour.EnableRagdoll(killer);

@@ -28,7 +28,11 @@ namespace YsoCorp {
         private void AddForce(Transform target) {
             Rigidbody rigid = hips.GetComponent<Rigidbody>();
             Vector3 forceDir = (this.transform.position - target.position).normalized;
-            rigid.AddForce(Vector3.up * this.force_up + forceDir * this.force, ForceMode.Impulse);
+            bool leftOrRight = Mathf.Abs(this.transform.position.x) > Mathf.Abs(target.position.x);
+            Vector3 forceDir2 = new Vector3((leftOrRight ? 0.3f : -0.3f), -0.1f, 0.9f);
+            Debug.Log(Mathf.Abs(this.transform.position.x) + " > " + Mathf.Abs(target.position.x));
+            Debug.Log(forceDir2);
+            rigid.AddForce(Vector3.up * this.force_up + forceDir2 * this.force, ForceMode.Impulse);
         }
 
         private void ActivatePhysic() {
