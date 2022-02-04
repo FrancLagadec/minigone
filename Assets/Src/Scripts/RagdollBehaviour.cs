@@ -6,6 +6,8 @@ namespace YsoCorp {
 
         public float force_up = 55;
         public float force = 100;
+        public float ennemyForce = 100;
+
         public Transform hips;
         public Transform playerHips;
         public GameObject ragdoll;
@@ -22,19 +24,37 @@ namespace YsoCorp {
 
             this.RotateRagdollBones();
             this.ActivatePhysic();
-            this.AddForce(target);
+            if (this.name == "Player") {
+                if (target.parent.name == "OutZone")
+                    this.AddForce(target);
+             } else {
+                this.AddForce(target, false);
+            }
         }
 
-        private void AddForce(Transform target) {
+        private void AddForce(Transform target, bool isPlayer = true) {
+            Rigidbody rigid = hips.GetComponent<Rigidbody>();
+            float force = isPlayer ? this.force : this.ennemyForce;
+            Vector3 forceDir = (this.transform.position - target.position).normalized;
+            forceDir = new Vector3(-forceDir.x, forceDir.y, -forceDir.z);
+            rigid.AddForce(Vector3.up * this.force_up + forceDir * force, ForceMode.Impulse);
+        }
+
+        /*
+        private void AddForceForward(Transform target) {
             Rigidbody rigid = hips.GetComponent<Rigidbody>();
             Vector3 forceDir = (this.transform.position - target.position).normalized;
-            /*bool leftOrRight = Mathf.Abs(this.transform.position.x) > Mathf.Abs(target.position.x);
-            Vector3 forceDir2 = new Vector3((leftOrRight ? 0.3f : -0.3f), -0.1f, 0.9f);
-            Debug.Log(Mathf.Abs(this.transform.position.x) + " > " + Mathf.Abs(target.position.x));
-            Debug.Log(forceDir2);
-            */
+            forceDir = new Vector3(-forceDir.x, forceDir.y, -forceDir.z);
             rigid.AddForce(Vector3.up * this.force_up + forceDir * this.force, ForceMode.Impulse);
         }
+        private void AddForceBackward(Transform target) {
+            Rigidbody rigid = hips.GetComponent<Rigidbody>();
+            Vector3 forceDir = (this.transform.position - target.position).normalized;
+            forceDir = new Vector3(forceDir.x, 0f, forceDir.z);
+            Debug.Log(forceDir);
+            rigid.AddForce(Vector3.up * this.force_up + forceDir * this.force, ForceMode.Impulse);
+        }
+        */
 
         private void ActivatePhysic() {
             Rigidbody[] rbs = this.ragdoll.GetComponentsInChildren<Rigidbody>();

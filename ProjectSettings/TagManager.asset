@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - NotRagdoll
+  - Ennemy
   layers:
   - Default
   - TransparentFX

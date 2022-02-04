@@ -12,7 +12,7 @@ namespace YsoCorp {
         private static float SPEED_ROTATION = 25f;
         private static float SPEED_ACCELERATION = 0.5f;
         //private static float SPEED = 4f;
-        private static float SPEED = 3.8f;
+        private static float SPEED = 5f;
         private static float ROTATION_SENSITIVITY = 0.2f;
         private static float MOVE_SENSITIVITY = 0.01f; 
         private static float MAX_ANGLE = 35f;
@@ -28,6 +28,7 @@ namespace YsoCorp {
         private Quaternion _rotation;
         private Rigidbody _rigidbody;
         private RagdollBehaviour _ragdollBehviour;
+        private CapsuleCollider _capsuleCollider;
         private TweenerCore<float, float, FloatOptions> _rotationTween;
 
         public bool isAlive { get; protected set; }
@@ -38,6 +39,7 @@ namespace YsoCorp {
             this._animator = this.GetComponentInChildren<Animator>();
             this._rotation = Quaternion.Euler(0f, 180f, 0f);;
             this._ragdollBehviour = this.GetComponent<RagdollBehaviour>();
+            this._capsuleCollider = this.GetComponent<CapsuleCollider>();
             this.isAlive = true;
         }
 
@@ -61,20 +63,30 @@ namespace YsoCorp {
             this.speed = Mathf.Clamp(this.speed, 0, SPEED);
             if (this.speed != 0) {
                 Vector3 dir = (this.player.transform.position - this._rigidbody.position).normalized;
-                Vector3 dir2 = new Vector3(-0.1f, 0, -1);
-                Debug.Log(this.player.transform.position + " / " + this._rigidbody.position);
-                Debug.Log(dir + " / " + dir2);
                 this._rigidbody.MovePosition(this._rigidbody.position + dir * this.speed * Time.fixedDeltaTime);
                 this._rigidbody.transform.forward = dir;
-                //Quaternion toRotation = Quaternion.LookRotation(dir, Vector3.up);
-                //this._rigidbody.transform.rotation = Quaternion.RotateTowards(this._rigidbody.transform.rotation,toRotation, SPEED_ROTATION);
                 this._rigidbody.MoveRotation(Quaternion.RotateTowards(this._rigidbody.rotation, this._rotation, SPEED_ROTATION));
                 this._slideMove = Vector3.zero;
 
-                if (this.preventFall == true) {
+                if (this.preventFall == true)
                     this.BlockPlayerFromFalling();
+                
+                if (Vector3.Distance(this._rigidbody.position, this.player.transform.position) < 1.5f) {
+                    Tackle();
                 }
             }
+        }
+
+        public void Tackle() {
+            if (!this.isAlive)
+                return;
+            
+            this.isAlive = false;
+            this._rigidbody.useGravity = false;
+            this._capsuleCollider.enabled = false;
+
+            if (this._ragdollBehviour != null)
+                this._ragdollBehviour.EnableRagdoll(this.player.transform);
         }
 
         private void BlockPlayerFromFalling() {

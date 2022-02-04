@@ -685,6 +685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force_up: 55
   force: 100
+  ennemyForce: 100
   hips: {fileID: 302125390}
   playerHips: {fileID: 9063416897231517424}
   ragdoll: {fileID: 1915821469}
@@ -1841,8 +1842,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.28401583, y: -0, z: -0, w: 0.9588196}
-  m_LocalPosition: {x: 0, y: 1, z: -6}
+  m_LocalRotation: {x: 0.18910746, y: -0, z: -0, w: 0.9819564}
+  m_LocalPosition: {x: 0, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1328174608}
@@ -1858,12 +1859,12 @@ LookAtConstraint:
   m_Enabled: 1
   m_Weight: 1
   m_RotationAtRest: {x: 0, y: 0, z: 0}
-  m_RotationOffset: {x: -12, y: 0, z: 0}
+  m_RotationOffset: {x: -20, y: 0, z: 0}
   m_Roll: 0
   m_WorldUpObject: {fileID: 0}
   m_UseUpObject: 0
   m_IsContraintActive: 1
-  m_IsLocked: 1
+  m_IsLocked: 0
   m_Sources:
   - sourceTransform: {fileID: 217317017}
     weight: 1

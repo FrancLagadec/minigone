@@ -7,11 +7,15 @@ namespace YsoCorp {
         private void OnCollisionEnter(Collision collision) {
             if (collision.transform.CompareTag("Obstacle") == true) {
                 this.KillPlayer(collision.transform);
+            } else if (collision.transform.CompareTag("Ennemy") == true) {
+                this.KillPlayer(collision.transform);
             }
         }
 
         private void OnTriggerEnter(Collider collision) {
             if (collision.transform.CompareTag("Obstacle") == true) {
+                this.KillPlayer(collision.transform);
+            } else if (collision.transform.CompareTag("Ennemy") == true) {
                 this.KillPlayer(collision.transform);
             } else if (collision.transform.CompareTag("Finish") == true) {
                 this.Finish();
