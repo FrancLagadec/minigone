@@ -641,7 +641,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc45803f8028f74b9da4e56afce37bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementsWithRotation: 0
+  movementsWithRotation: 1
   preventFall: 0
 --- !u!54 &217317019
 Rigidbody:
