@@ -35,9 +35,11 @@ namespace YsoCorp {
         private void AddForce(Transform target, bool isPlayer = true) {
             Rigidbody rigid = hips.GetComponent<Rigidbody>();
             float force = isPlayer ? this.force : this.ennemyForce;
+            float force_up = isPlayer ? this.force_up / 10f : this.force_up;
+            bool isRight = Mathf.Abs(this.transform.position.x) > Mathf.Abs(target.position.x);
             Vector3 forceDir = (this.transform.position - target.position).normalized;
-            forceDir = new Vector3(-forceDir.x, forceDir.y, -forceDir.z);
-            rigid.AddForce(Vector3.up * this.force_up + forceDir * force, ForceMode.Impulse);
+            forceDir = new Vector3((isRight && isPlayer ? forceDir.x : -forceDir.x), forceDir.y, -forceDir.z);
+            rigid.AddForce(Vector3.up * force_up + forceDir * force, ForceMode.Impulse);
         }
 
         /*

@@ -61,6 +61,7 @@ namespace YsoCorp {
         public Map map { get; set; } = null;
 
         private void Start() {
+            this.ycManager.soundManager.PlayMusic("Banjo", 0.05f);
             this.game.state = States.Home;
         }
 
