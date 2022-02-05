@@ -8,10 +8,15 @@ namespace YsoCorp {
         public Button bPlay;
         public Button bLevels;
         public Button bSetting;
+        public Button bShop;
         public Button bRemoveAds;
         public GameObject gridLayout;
+        public GameObject gridShop;
         public Button bClose;
 
+        public Button bBack;
+        public Button[] Purchase;
+        public Button[] Select;
 
         public Text levelIndex;
 
@@ -40,6 +45,26 @@ namespace YsoCorp {
             this.bClose.onClick.AddListener(() => {
                 this.gridLayout.transform.parent.gameObject.SetActive(false);
             });
+
+            this.bShop.onClick.AddListener(() => {
+                this.gridShop.transform.parent.gameObject.SetActive(true);
+            });
+
+            this.bBack.onClick.AddListener(() => {
+                this.gridShop.transform.parent.gameObject.SetActive(false);
+            });
+
+            for (int i = 0; i < this.Purchase.Length; i++) {
+                this.Purchase[i].onClick.AddListener(() => {
+                    Debug.Log("Purchase Call button " + i);
+                });
+            };
+
+            for (int i = 0; i < this.Select.Length; i++) {
+                this.Select[i].onClick.AddListener(() => {
+                    Debug.Log("Call button " + i);
+                });
+            };
         }
 
         void FixedUpdate() {
