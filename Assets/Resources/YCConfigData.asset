@@ -15,8 +15,8 @@ MonoBehaviour:
   gameYcId: 7dbbf3
   Vibration: 0
   VibrationDebugLog: 0
-  SoundEffect: 0
-  SoundMusic: 0
+  SoundEffect: 1
+  SoundMusic: 1
   InAppRemoveAds: 
   InAppRemoveAdsCanRemoveInBanner: 1
   NotifAuthorizationAlert: 1
