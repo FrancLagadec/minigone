@@ -14,7 +14,6 @@ namespace YsoCorp {
         //private static float SPEED = 4f;
         private static float SPEED = 5f;
         private static float ROTATION_SENSITIVITY = 0.2f;
-        private static float MOVE_SENSITIVITY = 0.01f; 
         private static float MAX_ANGLE = 35f;
 
         public bool movementsWithRotation;

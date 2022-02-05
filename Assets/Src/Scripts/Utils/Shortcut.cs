@@ -28,6 +28,9 @@ namespace YsoCorp {
                     this.game.state = Game.States.Lose;
                 }
             }
+            if (Input.GetKeyDown("d")) {
+                this.player.Sprint();
+            }
         }
 #endif
     }

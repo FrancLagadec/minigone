@@ -7,6 +7,9 @@ namespace YsoCorp {
         private void OnCollisionEnter(Collision collision) {
             if (collision.transform.CompareTag("Obstacle") == true) {
                 this.KillPlayer(collision.transform);
+            } else if (collision.transform.CompareTag("Star") == true) {
+                this.player.addStar();
+                Destroy(collision.gameObject);
             } else if (collision.transform.CompareTag("Ennemy") == true) {
                 this.KillPlayer(collision.transform);
             }
@@ -17,6 +20,9 @@ namespace YsoCorp {
                 this.KillPlayer(collision.transform);
             } else if (collision.transform.CompareTag("Ennemy") == true) {
                 this.KillPlayer(collision.transform);
+            } else if (collision.transform.CompareTag("Star") == true) {
+                this.player.addStar();
+                Destroy(collision.gameObject);
             } else if (collision.transform.CompareTag("Finish") == true) {
                 this.Finish();
             }

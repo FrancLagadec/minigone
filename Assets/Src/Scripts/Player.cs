@@ -12,6 +12,7 @@ namespace YsoCorp {
         private static float SPEED_ROTATION = 25f;
         private static float SPEED_ACCELERATION = 0.5f;
         private static float SPEED = 4f;
+        private static float SPEED_SPRINT = 8f;
         private static float ROTATION_SENSITIVITY = 0.2f;
         private static float MOVE_SENSITIVITY = 0.01f; 
         //private static float MAX_ANGLE = 35f;
@@ -19,12 +20,15 @@ namespace YsoCorp {
 
         public bool movementsWithRotation;
         public bool preventFall;
-
+        public int nbStar;
         private bool _isMoving;
+        private bool _isSprinting;
+        private float _sprintTime;
         private Vector3 _slideMove;
         private Animator _animator;
         private Quaternion _rotation;
         private Rigidbody _rigidbody;
+        private ParticleSystem _sprintSmoke;
         private RagdollBehaviour _ragdollBehviour;
         private TweenerCore<float, float, FloatOptions> _rotationTween;
 
@@ -35,7 +39,10 @@ namespace YsoCorp {
             this._rigidbody = this.GetComponent<Rigidbody>();
             this._animator = this.GetComponentInChildren<Animator>();
             this._ragdollBehviour = this.GetComponent<RagdollBehaviour>();
+            this._sprintSmoke = this.GetComponentInChildren<ParticleSystem>();
+            StopSprint();
             this.isAlive = true;
+            this.nbStar = 0;
 
             this.game.onStateChanged += this.Launch;
         }
@@ -43,11 +50,13 @@ namespace YsoCorp {
         private void Launch(Game.States states) {
             if (states == Game.States.Playing) {
                 this._isMoving = true;
+                this.nbStar = 0;
+                StopSprint();
                 this._animator?.SetBool("Moving", true);
             } else if (states == Game.States.Win) {
+                Debug.Log("Star = " + nbStar);
                 this._isMoving = false;
                 this._animator?.SetBool("Moving", false);
-                this._animator?.SetTrigger("Win");
             } else if (states == Game.States.Lose) {
                 this._isMoving = false;
             }
@@ -77,24 +86,35 @@ namespace YsoCorp {
             else
                 return;
 
+            StopSprint();
+
             if (this._ragdollBehviour != null) {
                 this._ragdollBehviour.EnableRagdoll(killer);
                 this.cam.Follow(this._ragdollBehviour.hips);
             }
         }
 
+        public void addStar() { this.nbStar += 1; }
+
         private void FixedUpdate() {
             if (this.game.state != Game.States.Playing || this.isAlive == false) {
                 return;
+            }
+
+            if (this._isSprinting) {
+                if (this._sprintTime <= 0)
+                    StopSprint();
+                else
+                    this._sprintTime -= Time.deltaTime;
             }
 
             if (this._isMoving == true) {
                 this.speed += SPEED_ACCELERATION;
             } else {
                 this.speed -= SPEED_ACCELERATION * 3f;
-            }
+            }            
 
-            this.speed = Mathf.Clamp(this.speed, 0, SPEED);
+            this.speed = Mathf.Clamp(this.speed, 0, (_isSprinting ? SPEED_SPRINT: SPEED));
             if (this.speed != 0) {
                 this._rigidbody.MovePosition(this._rigidbody.position + this.transform.forward * this.speed * Time.fixedDeltaTime + this._slideMove);
                 this._rigidbody.MoveRotation(Quaternion.RotateTowards(this._rigidbody.rotation, this._rotation, SPEED_ROTATION));
@@ -104,6 +124,23 @@ namespace YsoCorp {
                     this.BlockPlayerFromFalling();
                 }
             }
+        }
+
+        public void Sprint() {
+            if (this._isSprinting)
+                return;
+            
+            this._isSprinting = true;
+            this._sprintTime = 1f;
+            this._sprintSmoke.gameObject.SetActive(true);
+            this._animator.SetBool("Sprinting", true);
+        }
+
+        public void StopSprint() {
+            this._isSprinting = false;
+            this._sprintTime = 0f;
+            this._sprintSmoke.gameObject.SetActive(false);
+            this._animator.SetBool("Sprinting", false);
         }
 
         private void BlockPlayerFromFalling() {
