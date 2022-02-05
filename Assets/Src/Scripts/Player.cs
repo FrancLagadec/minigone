@@ -51,15 +51,15 @@ namespace YsoCorp {
             if (states == Game.States.Playing) {
                 this._isMoving = true;
                 this.nbStar = 0;
-                StopSprint();
                 this._animator?.SetBool("Moving", true);
             } else if (states == Game.States.Win) {
-                Debug.Log("Star = " + nbStar);
                 this._isMoving = false;
                 this._animator?.SetBool("Moving", false);
             } else if (states == Game.States.Lose) {
                 this._isMoving = false;
             }
+            
+            StopSprint();
         }
 
         public void Reset() {
@@ -94,7 +94,12 @@ namespace YsoCorp {
             }
         }
 
-        public void addStar() { this.nbStar += 1; }
+        public void AddStar() { this.nbStar += 1; }
+
+        public void StoreStar() {
+            if (nbStar > 0)
+                    this.dataManager.updateStarOnLevel(this.dataManager.GetLevel());
+        }
 
         private void FixedUpdate() {
             if (this.game.state != Game.States.Playing || this.isAlive == false) {

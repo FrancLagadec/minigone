@@ -9,6 +9,8 @@ namespace YsoCorp {
         public PositionConstraint constraint;
         public LookAtConstraint lookat;
 
+        public Transform[] camPos;
+
         protected override void Awake() {
             base.Awake();
         }
@@ -24,6 +26,12 @@ namespace YsoCorp {
 
             this.constraint.SetSource(0, source);
             this.lookat.SetSource(0, sourceLook);
+        }
+
+        public void SwitchCam(int camNb) {
+
+            if (camNb < camPos.Length)
+                this.ycCamera.transform.position = camPos[camNb].position;
         }
 
     }

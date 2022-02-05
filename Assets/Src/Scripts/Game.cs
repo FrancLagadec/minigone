@@ -26,20 +26,24 @@ namespace YsoCorp {
                     if (value == States.Home) {
                         this.HideAllMenus();
                         this.menuHome.Display();
+                        this.cam.SwitchCam(0);
                         this.Reset();
                     } else if (value == States.Playing) {
                         this.ycManager.OnGameStarted(this.dataManager.GetLevel());
                         this.HideAllMenus();
                         this.menuGame.Display();
+                        this.cam.SwitchCam(1);
                     } else if (value == States.Lose) {
                         this.ycManager.OnGameFinished(false);
                         this.HideAllMenus();
                         this.menuLose.Display();
+                        this.cam.SwitchCam(1);
                     } else if (value == States.Win) {
                         this.ycManager.OnGameFinished(true);
                         this.dataManager.NextLevel();
                         this.HideAllMenus();
                         this.menuWin.Display();
+                        this.cam.SwitchCam(1);
                     }
                 }
             }

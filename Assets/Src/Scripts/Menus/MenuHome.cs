@@ -47,10 +47,17 @@ namespace YsoCorp {
         }
 
         void OnEnable() {
+            Transform tmpStar;
+
             foreach(Transform child in gridLayout.transform) {
-                if (child.GetSiblingIndex() < this.dataManager.GetLevelMax())
+                if (child.GetSiblingIndex() < this.dataManager.GetLevelMax()) {
                     child.gameObject.SetActive(true);
-                else
+                    tmpStar = child.GetChild(0);
+                    if (this.dataManager.StarInLevelIsTaken(child.GetSiblingIndex()))
+                        tmpStar.gameObject.SetActive(true);
+                    else
+                        tmpStar.gameObject.SetActive(false);
+                } else
                     child.gameObject.SetActive(false);
             }
         }

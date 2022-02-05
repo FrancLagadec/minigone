@@ -8,7 +8,7 @@ namespace YsoCorp {
             if (collision.transform.CompareTag("Obstacle") == true) {
                 this.KillPlayer(collision.transform);
             } else if (collision.transform.CompareTag("Star") == true) {
-                this.player.addStar();
+                this.player.AddStar();
                 Destroy(collision.gameObject);
             } else if (collision.transform.CompareTag("Ennemy") == true) {
                 this.KillPlayer(collision.transform);
@@ -21,7 +21,7 @@ namespace YsoCorp {
             } else if (collision.transform.CompareTag("Ennemy") == true) {
                 this.KillPlayer(collision.transform);
             } else if (collision.transform.CompareTag("Star") == true) {
-                this.player.addStar();
+                this.player.AddStar();
                 Destroy(collision.gameObject);
             } else if (collision.transform.CompareTag("Finish") == true) {
                 this.Finish();
@@ -34,6 +34,7 @@ namespace YsoCorp {
         }
 
         private void Finish() {
+            this.player.StoreStar();
             this.game.Win();
         }
 
