@@ -7,6 +7,7 @@ namespace YsoCorp {
 
         private static string PSEUDO = "PSEUDO";
         private static string LEVEL = "LEVEL";
+        private static string LEVEL_MAX = "LEVEL_MAX";
         private static string NUMCHARACTER = "NUMCHARACTER";
 
         private static int DEFAULT_LEVEL = 1;
@@ -17,9 +18,18 @@ namespace YsoCorp {
         public int GetLevel() {
             return this.GetInt(LEVEL, DEFAULT_LEVEL);
         }
+        public int GetLevelMax() {
+            return this.GetInt(LEVEL_MAX, DEFAULT_LEVEL);
+        }
+        public int SetLevel(int newLevel) {
+            this.SetInt(LEVEL, newLevel);
+            return newLevel;
+        }
         public int NextLevel() {
             int level = this.GetLevel() + 1;
             this.SetInt(LEVEL, this.GetLevel() + 1);
+            if (level > this.GetLevelMax())
+                this.SetInt(LEVEL_MAX, this.GetLevelMax() + 1);
             return level;
         }
         public int PrevLevel() {
