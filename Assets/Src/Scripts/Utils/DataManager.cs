@@ -11,11 +11,11 @@ namespace YsoCorp {
         private static string STAR_NB = "STAR_NB";
         private static string STAR_BY_LEVELS = "STAR_BY_LEVELS";
         private static string SHOP = "SHOP";
-        private static string SPRINT_UNLOCK = "SPRINT_UNLOCK";
         private static string CURRENT_SKIN = "CURRENT_SKIN";
         private static string NUMCHARACTER = "NUMCHARACTER";
 
         private static int DEFAULT_LEVEL = 1;
+        private static int MAX_LEVEL = 30;
 
         /***** CUSTOM  *****/
 
@@ -32,6 +32,8 @@ namespace YsoCorp {
         }
         public int NextLevel() {
             int level = this.GetLevel() + 1;
+            if (level > MAX_LEVEL)
+                return MAX_LEVEL;
             this.SetInt(LEVEL, this.GetLevel() + 1);
             if (level > this.GetLevelMax())
                 this.SetInt(LEVEL_MAX, this.GetLevelMax() + 1);

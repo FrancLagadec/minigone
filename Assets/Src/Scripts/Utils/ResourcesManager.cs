@@ -27,9 +27,9 @@ namespace YsoCorp {
 #endif
             int level = this.dataManager.GetLevel() - 1;
             if (level < this._maps.Length) {
-                return this._maps[level % this._maps.Length];
+                return this._maps[level];
             }
-            return this._maps[Random.Range(0, this._maps.Length)];
+            return this._maps[this._maps.Length - 1];
         }
 
     }

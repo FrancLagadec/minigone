@@ -52,6 +52,7 @@ namespace YsoCorp {
 
             this.bClose.onClick.AddListener(() => {
                 this.gridLayout.transform.parent.gameObject.SetActive(false);
+                this.game.Reset();
             });
 
             this.bBack.onClick.AddListener(() => {
@@ -109,7 +110,6 @@ namespace YsoCorp {
                 return;
             
             int index = BPurchase.transform.parent.GetSiblingIndex();
-            Debug.Log("Purchase button " + index);
 
             this.dataManager.updateShop(index);
             if (this.dataManager.ItemInShopIsPurchased(index)) {
@@ -127,7 +127,6 @@ namespace YsoCorp {
         void SelectItem(Button BSelect) {
 
             int index = BSelect.transform.parent.GetSiblingIndex();
-            Debug.Log("Select button " + index);
 
             if (index >= 5)
                 return;
