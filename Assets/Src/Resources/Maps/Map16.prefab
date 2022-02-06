@@ -1249,6 +1249,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &7354197613221278637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3418,7 +3420,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427765049924771809}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.06, y: 0.64, z: 17.59}
+  m_LocalPosition: {x: -0.06, y: 0.64, z: 14.21}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 3476994335555590434}
@@ -8668,7 +8670,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 2.5
+  SPEED: 5
+  wait: 0
+  vision: 30
 --- !u!54 &6558846399254503484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9317,7 +9321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 3
+  SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &4467034271554900402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -11623,7 +11629,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 2
+  SPEED: 5
+  wait: 0
+  vision: 20
 --- !u!54 &239293160822974196
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -18169,7 +18177,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 2
+  SPEED: 5
+  wait: 0
+  vision: 20
 --- !u!54 &6076586833918589990
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20357,6 +20367,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &737980501425462326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20594,7 +20606,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 2
+  SPEED: 5
+  wait: 0
+  vision: 20
 --- !u!54 &4385726147466073275
 Rigidbody:
   m_ObjectHideFlags: 0

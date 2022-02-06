@@ -2729,7 +2729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427765049924771809}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.14, y: 0.64, z: 12.15}
+  m_LocalPosition: {x: 5.25, y: 0.64, z: 3.57}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 3476994335555590434}
@@ -4636,7 +4636,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2388618891597678985}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.53, y: -0.4141264, z: 0.98}
+  m_LocalPosition: {x: -5.76, y: -0.4141264, z: 0.59}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4396142742030031267}
@@ -4659,6 +4659,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &1055447138051309359
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10196,7 +10198,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5615928885693375832}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 4.24, y: -0.4141264, z: -2.95}
+  m_LocalPosition: {x: 8.953, y: -0.4141264, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2169685658230111672}
@@ -10219,6 +10221,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &1489902769127861301
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13672,7 +13676,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7604664520855202286}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.51, y: -0.4141264, z: -9}
+  m_LocalPosition: {x: 9.87, y: -0.4141264, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1432180244899142083}
@@ -13695,6 +13699,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &6950178746664607574
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15514,7 +15520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8705118190344026944}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -3.25, y: -0.4141264, z: -3.18}
+  m_LocalPosition: {x: 8.04, y: -0.4141264, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2970999375559838881}
@@ -15537,6 +15543,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &1286320219635849995
 Rigidbody:
   m_ObjectHideFlags: 0

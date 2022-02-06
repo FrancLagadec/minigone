@@ -1032,7 +1032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 489901188715874082}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -0.51, y: -0.4141264, z: -4.93}
+  m_LocalPosition: {x: 1.61, y: -0.4141264, z: -4.93}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4659050830724039966}
@@ -1055,6 +1055,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &7354197613221278637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3318,7 +3320,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427765049924771809}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.34, y: 0.64, z: 12.53}
+  m_LocalPosition: {x: -8.46, y: 0.64, z: 9.17}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 3476994335555590434}
@@ -8482,7 +8484,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3348719848681121074}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -4.23, y: -0.4141264, z: -6.95}
+  m_LocalPosition: {x: -5.23, y: -0.4141264, z: -6.95}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 7011535683316596738}
@@ -8505,6 +8507,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &6868618961453445678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8581,7 +8585,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3354227515468947403}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -5.23, y: -0.4141264, z: 5.14}
+  m_LocalPosition: {x: -5.23, y: -0.4141264, z: 7.94}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8138148255022155600}
@@ -8603,7 +8607,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 3
+  SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &6558846399254503484
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8634,7 +8640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force_up: 55
   force: 100
-  ennemyForce: 140
+  ennemyForce: 120
   hips: {fileID: 6661054898923012967}
   playerHips: {fileID: 7849315761512614073}
   ragdoll: {fileID: 6590192437449738194}
@@ -9329,7 +9335,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 3
+  SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &4467034271554900402
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9360,7 +9368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force_up: 55
   force: 100
-  ennemyForce: 140
+  ennemyForce: 120
   hips: {fileID: 7333356577910493877}
   playerHips: {fileID: 2660046822677906420}
   ragdoll: {fileID: 1570473417527160065}
@@ -17978,7 +17986,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7069585287430495666}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 3.5, y: -0.4141264, z: -4.99}
+  m_LocalPosition: {x: 6.46, y: -0.4141264, z: -4.99}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 1580412782505392311}
@@ -18001,6 +18009,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &737980501425462326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23964,7 +23974,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
-  SPEED: 3
+  SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &5872567716281585084
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -23995,7 +24007,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force_up: 55
   force: 100
-  ennemyForce: 140
+  ennemyForce: 120
   hips: {fileID: 4413185903497993652}
   playerHips: {fileID: 1290171143292178164}
   ragdoll: {fileID: 4658373067462070990}

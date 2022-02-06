@@ -1225,6 +1225,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &7354197613221278637
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4037,7 +4039,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427765049924771809}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.64, z: 21.01}
+  m_LocalPosition: {x: -0.36, y: 0.64, z: 11.95}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 3476994335555590434}
@@ -8187,6 +8189,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &8877419320914525824
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9342,6 +9346,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &6868618961453445678
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14783,6 +14789,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &9192452890625986105
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17373,6 +17381,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &7336248433031826421
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20711,6 +20721,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 6
+  wait: 0
+  vision: 0
 --- !u!54 &737980501425462326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -27670,6 +27682,8 @@ MonoBehaviour:
   movementsWithRotation: 1
   preventFall: 0
   SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &7273340550926150680
 Rigidbody:
   m_ObjectHideFlags: 0
