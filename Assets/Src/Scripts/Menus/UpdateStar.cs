@@ -6,7 +6,7 @@ namespace YsoCorp {
 
         private Text stars;
 
-        void Awake() {
+        void Start() {
             stars = this.GetComponent<Text>();
         }
 

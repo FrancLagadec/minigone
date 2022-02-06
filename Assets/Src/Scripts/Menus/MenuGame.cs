@@ -19,14 +19,14 @@ namespace YsoCorp {
 
             this.bSprint.onClick.AddListener(() => {
                 this.ycManager.adsManager.ShowInterstitial(() => {
-                    this.player.Sprint();
+                    this.player.StartSprint();
                     this.bSprint.gameObject.SetActive(false);
                 });
             });
         }
 
         void OnEnable() {
-            this.bSprint.gameObject.SetActive(true);
+            this.bSprint.gameObject.SetActive(this.dataManager.ItemInShopIsPurchased(5));
             if (star != null)
                 star.SetActive(this.player.nbStar > 0);
         }

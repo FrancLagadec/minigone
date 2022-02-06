@@ -9,7 +9,10 @@ namespace YsoCorp {
         private static string LEVEL = "LEVEL";
         private static string LEVEL_MAX = "LEVEL_MAX";
         private static string STAR_NB = "STAR_NB";
-        private static string STAR_BY_LEVELS = "STAR_BY_LEVELS"; 
+        private static string STAR_BY_LEVELS = "STAR_BY_LEVELS";
+        private static string SHOP = "SHOP";
+        private static string SPRINT_UNLOCK = "SPRINT_UNLOCK";
+        private static string CURRENT_SKIN = "CURRENT_SKIN";
         private static string NUMCHARACTER = "NUMCHARACTER";
 
         private static int DEFAULT_LEVEL = 1;
@@ -48,9 +51,9 @@ namespace YsoCorp {
             return this.GetString(STAR_BY_LEVELS, "000000000000000000000000000000");
         }
 
-        public int AddStar() {
-            this.SetInt(STAR_NB, this.GetStarNb() + 1);
-            return this.GetStarNb();
+        public int SetStarNb(int newStarNb) {
+            this.SetInt(STAR_NB, newStarNb);
+            return newStarNb;
         }
 
         public string SetStarByLevels(string newStarByLevels) {
@@ -76,7 +79,7 @@ namespace YsoCorp {
             else if (starStr[level - 1] == '1')
                 return starStr;
 
-            this.AddStar();
+            this.SetStarNb(this.GetStarNb() + 1);
             for (int i = 0; i < starStr.Length; i++) {
                 if (i != level - 1)
                     tmp += starStr[i];
@@ -85,6 +88,65 @@ namespace YsoCorp {
             }
 
             return this.SetStarByLevels(tmp);
+        }
+
+        //SHOP
+        public string GetShop() {
+            return this.GetString(SHOP, "100000");
+        }
+
+        public string SetShop(string newShopStr) {
+            this.SetString(SHOP, newShopStr);
+            return newShopStr;
+        }
+
+        public bool ItemInShopIsPurchased(int indexItem) {
+            string shopStr = this.GetShop();
+            if (indexItem >= shopStr.Length)
+                return false;
+            else if (shopStr[indexItem] == '1')
+                return true;
+            else
+                return false;
+        }
+
+        public string updateShop(int indexItem) {
+            string shopStr = this.GetShop();
+            string tmp = "";
+
+            if (indexItem >= shopStr.Length)
+                return shopStr;
+            else if (shopStr[indexItem] == '1')
+                return shopStr;
+
+            for (int i = 0; i < shopStr.Length; i++) {
+                if (i != indexItem)
+                    tmp += shopStr[i];
+                else
+                    tmp += '1';
+            }
+            
+            return this.SetShop(tmp);
+        }
+
+        //SPRINT UNLOCK
+        /*public int GetSprintIsUnlock() {
+            return this.dataManager.GetInt(SPRINT_UNLOCK, -1);
+        }
+
+        public int SetSprintIsUnlock(int isLock) {
+            this.dataManager.SetInt(SPRINT_UNLOCK, isLock);
+            return isLock;
+        }*/
+
+        //CURRENT SKIN
+        public int GetCurrentSkin() {
+            return this.dataManager.GetInt(CURRENT_SKIN, 0);
+        }
+
+        public int SetCurrentSkin(int newSkin) {
+            this.dataManager.SetInt(CURRENT_SKIN, newSkin);
+            return newSkin;
         }
 
         //PLAYER NAME

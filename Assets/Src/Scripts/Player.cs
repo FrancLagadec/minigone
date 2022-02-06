@@ -29,8 +29,12 @@ namespace YsoCorp {
         private Quaternion _rotation;
         private Rigidbody _rigidbody;
         private ParticleSystem _sprintSmoke;
+        
         private RagdollBehaviour _ragdollBehviour;
         private TweenerCore<float, float, FloatOptions> _rotationTween;
+        public SkinnedMeshRenderer _skinCharacter;
+        public SkinnedMeshRenderer _skinRagdoll;
+        public Material[] _skinTab;
 
         public bool isAlive { get; protected set; }
         public float speed { get; private set; }
@@ -40,9 +44,10 @@ namespace YsoCorp {
             this._animator = this.GetComponentInChildren<Animator>();
             this._ragdollBehviour = this.GetComponent<RagdollBehaviour>();
             this._sprintSmoke = this.GetComponentInChildren<ParticleSystem>();
-            StopSprint();
             this.isAlive = true;
             this.nbStar = 0;
+            this.StopSprint();
+            this.UpdateSkin();
 
             this.game.onStateChanged += this.Launch;
         }
@@ -59,10 +64,11 @@ namespace YsoCorp {
                 this._isMoving = false;
             }
             
-            StopSprint();
+            this.StopSprint();
         }
 
         public void Reset() {
+            this.player.UpdateSkin();
             this.isAlive = true;
             this._isMoving = false;
             if (this._animator != null) {
@@ -101,6 +107,16 @@ namespace YsoCorp {
                     this.dataManager.updateStarOnLevel(this.dataManager.GetLevel());
         }
 
+        public void UpdateSkin() {
+            int index = this.dataManager.GetCurrentSkin();
+
+            if (index > _skinTab.Length)
+                return;
+            
+            _skinCharacter.material = _skinTab[index];
+            _skinRagdoll.material = _skinTab[index];
+        }
+
         private void FixedUpdate() {
             if (this.game.state != Game.States.Playing || this.isAlive == false) {
                 return;
@@ -108,7 +124,7 @@ namespace YsoCorp {
 
             if (this._isSprinting) {
                 if (this._sprintTime <= 0)
-                    StopSprint();
+                    this.StopSprint();
                 else
                     this._sprintTime -= Time.deltaTime;
             }
@@ -131,7 +147,7 @@ namespace YsoCorp {
             }
         }
 
-        public void Sprint() {
+        public void StartSprint() {
             if (this._isSprinting)
                 return;
             

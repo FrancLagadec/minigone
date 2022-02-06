@@ -42,22 +42,6 @@ namespace YsoCorp {
             rigid.AddForce(Vector3.up * force_up + forceDir * force, ForceMode.Impulse);
         }
 
-        /*
-        private void AddForceForward(Transform target) {
-            Rigidbody rigid = hips.GetComponent<Rigidbody>();
-            Vector3 forceDir = (this.transform.position - target.position).normalized;
-            forceDir = new Vector3(-forceDir.x, forceDir.y, -forceDir.z);
-            rigid.AddForce(Vector3.up * this.force_up + forceDir * this.force, ForceMode.Impulse);
-        }
-        private void AddForceBackward(Transform target) {
-            Rigidbody rigid = hips.GetComponent<Rigidbody>();
-            Vector3 forceDir = (this.transform.position - target.position).normalized;
-            forceDir = new Vector3(forceDir.x, 0f, forceDir.z);
-            Debug.Log(forceDir);
-            rigid.AddForce(Vector3.up * this.force_up + forceDir * this.force, ForceMode.Impulse);
-        }
-        */
-
         private void ActivatePhysic() {
             Rigidbody[] rbs = this.ragdoll.GetComponentsInChildren<Rigidbody>();
             Collider[] colliders = this.ragdoll.GetComponentsInChildren<Collider>();

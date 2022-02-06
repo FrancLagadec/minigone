@@ -5,6 +5,9 @@ namespace YsoCorp {
 
 #if UNITY_EDITOR
         private void Update() {
+            if (Input.GetKeyDown("s")) {
+                this.dataManager.SetStarNb(30);
+            }
             if (Input.GetKeyDown("r")) {
                 this.dataManager.DeleteAll();
             }
@@ -29,7 +32,7 @@ namespace YsoCorp {
                 }
             }
             if (Input.GetKeyDown("d")) {
-                this.player.Sprint();
+                this.player.StartSprint();
             }
         }
 #endif
