@@ -21,7 +21,10 @@ namespace YsoCorp {
 
         // LEVEL
         public int GetLevel() {
-            return this.GetInt(LEVEL, DEFAULT_LEVEL);
+            int Level = this.GetInt(LEVEL, DEFAULT_LEVEL);
+            if (Level > MAX_LEVEL)
+                Level = MAX_LEVEL;
+            return Level;
         }
         public int GetLevelMax() {
             return this.GetInt(LEVEL_MAX, DEFAULT_LEVEL);

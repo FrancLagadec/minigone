@@ -42,8 +42,10 @@ namespace YsoCorp {
         }
 
         private void KillPlayer(Transform killer) {
-            this.player.Die(killer);
-            this.game.Lose();
+            if (this.player.isAlive) {
+                this.player.Die(killer);
+                this.game.Lose();
+            }
         }
 
         private void Finish() {

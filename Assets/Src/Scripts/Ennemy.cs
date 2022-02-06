@@ -55,9 +55,8 @@ namespace YsoCorp {
             if (this.game.state != Game.States.Playing || this.isAlive == false) {
                 return;
             }
-            
+
             if (vision > 0) {
-                Debug.Log("dist = " + Vector3.Distance(this._rigidbody.position, this.player.transform.position) + " / " + vision);
                 if (Vector3.Distance(this._rigidbody.position, this.player.transform.position) > vision) {
                     return;
                 } else
