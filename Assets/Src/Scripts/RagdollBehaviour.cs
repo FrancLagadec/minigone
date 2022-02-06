@@ -22,7 +22,7 @@ namespace YsoCorp {
             this.ragdoll.SetActive(true);
             this.playerHips.parent.gameObject.SetActive(false);
 
-            //this.RotateRagdollBones();
+            this.RotateRagdollBones();
             this.ActivatePhysic();
             if (this.name == "Player") {
                 if (target.parent.name == "OutZone")

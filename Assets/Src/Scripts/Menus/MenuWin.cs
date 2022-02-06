@@ -13,7 +13,8 @@ namespace YsoCorp {
         void Start() {
             this.bRetry.onClick.AddListener(() => {
                 this.ycManager.adsManager.ShowInterstitial(() => {
-                    this.dataManager.PrevLevel();
+                    if (this.dataManager.GetLevel() < 30)
+                        this.dataManager.PrevLevel();
                     this.game.state = Game.States.Home;
                 });
             });
