@@ -12,12 +12,12 @@ namespace YsoCorp {
         private static float SPEED_ROTATION = 25f;
         private static float SPEED_ACCELERATION = 0.5f;
         //private static float SPEED = 4f;
-        private static float SPEED = 5f;
         private static float ROTATION_SENSITIVITY = 0.2f;
         private static float MAX_ANGLE = 35f;
 
         public bool movementsWithRotation;
         public bool preventFall;
+        public float SPEED = 5f;
 
         private bool _isMoving;
 
