@@ -18,6 +18,9 @@ namespace YsoCorp {
         public bool movementsWithRotation;
         public bool preventFall;
         public float SPEED = 5f;
+        public float wait = 0f;
+        public float vision = 0f;
+
 
         private bool _isMoving;
 
@@ -50,6 +53,19 @@ namespace YsoCorp {
             }
 
             if (this.game.state != Game.States.Playing || this.isAlive == false) {
+                return;
+            }
+            
+            if (vision > 0) {
+                Debug.Log("dist = " + Vector3.Distance(this._rigidbody.position, this.player.transform.position) + " / " + vision);
+                if (Vector3.Distance(this._rigidbody.position, this.player.transform.position) > vision) {
+                    return;
+                } else
+                    vision = 0;
+            }
+
+            if (wait > 0) {
+                wait -= Time.deltaTime;
                 return;
             }
 

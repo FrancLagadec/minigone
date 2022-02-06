@@ -3921,6 +3921,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementsWithRotation: 1
   preventFall: 0
+  SPEED: 5
+  wait: 0
+  vision: 0
 --- !u!54 &6950178746664607574
 Rigidbody:
   m_ObjectHideFlags: 0
