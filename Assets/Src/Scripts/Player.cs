@@ -100,7 +100,10 @@ namespace YsoCorp {
             }
         }
 
-        public void AddStar() { this.nbStar += 1; }
+        public void AddStar() {
+            if (this.dataManager.StarInLevelIsTaken(this.dataManager.GetLevel()) == false)
+                this.nbStar += 1;
+        }
 
         public void StoreStar() {
             if (nbStar > 0)
