@@ -103,8 +103,8 @@ namespace YsoCorp {
         public void AddStar() { this.nbStar += 1; }
 
         public void StoreStar() {
-            if (nbStar > 0 && this.dataManager.StarInLevelIsTaken(this.dataManager.GetLevel()) == false)
-                    this.dataManager.updateStarOnLevel(this.dataManager.GetLevel());
+            if (nbStar > 0 && this.dataManager.StarInLevelIsTaken(this.dataManager.GetLevel() - 1) == false)
+                this.dataManager.updateStarOnLevel(this.dataManager.GetLevel());
         }
 
         public void UpdateSkin() {

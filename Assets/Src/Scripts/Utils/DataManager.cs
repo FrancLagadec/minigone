@@ -68,7 +68,7 @@ namespace YsoCorp {
 
         public bool StarInLevelIsTaken(int level) {
             string starStr = this.GetStarByLevels();
-
+            
             if (level >= starStr.Length)
                 return true;
             
@@ -79,7 +79,7 @@ namespace YsoCorp {
             string starStr = this.GetStarByLevels();
             string tmp = "";
 
-            if (level >= starStr.Length)
+            if (level - 1 >= starStr.Length)
                 return starStr;
             else if (starStr[level - 1] == '1')
                 return starStr;
